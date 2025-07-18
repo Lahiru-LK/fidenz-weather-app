@@ -18,8 +18,8 @@ const SearchBar = ({ searchCity, setSearchCity, onAddCity, dark }) => {
         onClick={onAddCity}
         className={`px-6 py-2 rounded-r-lg transition-colors duration-300 font-medium shadow-sm ${
           dark
-            ? 'bg-blue-600 hover:bg-blue-700 text-white'
-            : 'bg-blue-600 hover:bg-blue-700 text-white'
+            ? 'bg-indigo-600 hover:bg-indigo-700 text-white'
+            : 'bg-indigo-600 hover:bg-indigo-700 text-white'
         }`}
       >
         Add City
