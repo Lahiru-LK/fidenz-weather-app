@@ -12,7 +12,7 @@ const WeatherCard = ({ weather, onRemove, dark }) => {
       </button>
 
       {/* Main Weather Section */}
-      <div className="px-3 py-4 md:px-16 md:py-10">
+      <div className="px-3 py-4 md:px-16 md:py-5">
         {/* Mobile Layout - Centered */}
         <div className="block md:hidden text-center">
           <h2 className="text-xl font-bold mb-1">
@@ -76,7 +76,7 @@ const WeatherCard = ({ weather, onRemove, dark }) => {
       </div>
 
       {/* Details Section */}
-      <div className={`px-3 py-2 md:px-16 md:py-3 ${
+      <div className={`px-3 py-2 md:px-16 md:py-8 ${
         dark 
           ? 'bg-gray-900/90 border-t border-gray-700' 
           : 'bg-gray-800/80'
@@ -100,7 +100,9 @@ const WeatherCard = ({ weather, onRemove, dark }) => {
 
           {/* Center Column - Wind */}
           <div className="flex flex-col items-center justify-center text-center md:px-4 md:border-r md:border-gray-600">
-            <div className="text-lg mb-1">✈️</div>
+            <svg className="w-5 h-5 md:w-6 md:h-6 mb-1" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M6.5 8.5c0-2.21 1.79-4 4-4s4 1.79 4 4c0 2.21-1.79 4-4 4s-4-1.79-4-4zM12 1L8 7l2 1 2-2 2 2 2-1-4-6zM12 23l4-6-2-1-2 2-2-2-2 1 4 6z"/>
+            </svg>
             <div className={`text-xs ${dark ? 'text-gray-100' : 'text-white'}`}>{weather?.wind}</div>
           </div>
 

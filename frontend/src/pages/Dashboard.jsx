@@ -189,8 +189,8 @@ const Dashboard = () => {
               onClick={() => setShowAll(!showAll)}
               className={`px-6 py-2 rounded-lg font-medium transition-colors duration-300 ${
                 dark
-                  ? 'bg-gray-700 hover:bg-gray-600 text-white'
-                  : 'bg-blue-600 hover:bg-blue-700 text-white'
+                  ? 'bg-indigo-600 hover:bg-indigo-700 text-white'
+                  : 'bg-indigo-500 hover:bg-indigo-600 text-white'
               }`}
             >
               {showAll ? 'Show Less' : 'See More'}
