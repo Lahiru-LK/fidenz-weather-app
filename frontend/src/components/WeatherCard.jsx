@@ -1,9 +1,12 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const WeatherCard = ({ weather, onRemove, dark }) => {
+  const navigate = useNavigate();
+
   const handleCardClick = () => {
     console.log('Card clicked:', weather?.city);
-    // Add your card click logic here
+    navigate(`/city/${weather?.id}`);
   };
 
   return (
@@ -34,7 +37,7 @@ const WeatherCard = ({ weather, onRemove, dark }) => {
         }}
       >
         {/* Mobile Layout - Centered */}
-        <div className="block md:hidden text-center relative z-10">
+        <div className="block md:hidden text-center relative z-10 ">
           <h2 className="text-xl font-bold mb-1">
             {weather?.city}
           </h2>

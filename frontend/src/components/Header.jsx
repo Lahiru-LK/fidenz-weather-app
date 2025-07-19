@@ -1,11 +1,18 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import UserProfile from './UserProfile';
 
 const Header = ({ dark, setDark }) => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const navigate = useNavigate();
 
   const handleLogout = () => {
     console.log('Logging out...');
+    setShowMobileMenu(false);
+  };
+
+  const handleNavigation = (path) => {
+    navigate(path);
     setShowMobileMenu(false);
   };
 
@@ -77,7 +84,7 @@ const Header = ({ dark, setDark }) => {
           }`}>
             <div className="py-2">
               <button
-                onClick={() => setShowMobileMenu(false)}
+                onClick={() => handleNavigation('/')}
                 className={`w-full text-left px-4 py-3 text-sm transition-colors duration-200 flex items-center space-x-3 ${
                   dark 
                     ? 'text-gray-200 hover:bg-gray-700' 
@@ -91,7 +98,7 @@ const Header = ({ dark, setDark }) => {
               </button>
               
               <button
-                onClick={() => setShowMobileMenu(false)}
+                onClick={() => handleNavigation('/dashboard')}
                 className={`w-full text-left px-4 py-3 text-sm transition-colors duration-200 flex items-center space-x-3 ${
                   dark 
                     ? 'text-gray-200 hover:bg-gray-700' 

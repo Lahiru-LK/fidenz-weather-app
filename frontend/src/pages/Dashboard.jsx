@@ -158,10 +158,10 @@ const Dashboard = () => {
 
   return (
     <div className={dark ? "dark" : ""}>
-      <div className={`smooth-morph page-load ${isLoaded ? 'opacity-100' : 'opacity-0'} ${dark ? 'bg-morph-night' : 'bg-morph-day'}`}>
+      <div className={`min-h-screen flex flex-col smooth-morph page-load ${isLoaded ? 'opacity-100' : 'opacity-0'} ${dark ? 'bg-morph-night' : 'bg-morph-day'}`}>
         <Header dark={dark} setDark={setDark} />
         
-        <div className="bg-smooth-transition">
+        <div className="bg-smooth-transition flex-1 flex flex-col">
           <Background dark={dark} isLoaded={isLoaded}>
             <div className="content-smooth">
               <div className="smooth-morph">
@@ -192,7 +192,7 @@ const Dashboard = () => {
 
               {/* See More Button */}
               {hasMoreCards && (
-                <div className="text-center mt-6 content-smooth">
+                <div className="text-center mt-6 content-smooth pb-2">
                   <button
                     onClick={() => setShowAll(!showAll)}
                     className={`px-6 py-2 rounded-lg font-medium smooth-morph ${dark
@@ -206,7 +206,6 @@ const Dashboard = () => {
               )}
             </div>
           </Background>
-          
         </div>
         
         <div className="smooth-morph">
