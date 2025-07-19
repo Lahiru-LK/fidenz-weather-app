@@ -1,20 +1,40 @@
 import React from "react";
 
 const WeatherCard = ({ weather, onRemove, dark }) => {
+  const handleCardClick = () => {
+    console.log('Card clicked:', weather?.city);
+    // Add your card click logic here
+  };
+
   return (
-    <div className={`relative w-full max-w-sm md:max-w-2xl mx-auto rounded-xl overflow-hidden shadow-lg bg-gradient-to-b ${weather?.gradient || 'from-blue-400 to-blue-600'} text-white font-sans transition-all duration-300 ${dark ? 'shadow-gray-800/50' : 'shadow-lg'}`}>
+    <div 
+      onClick={handleCardClick}
+      className={`relative w-full max-w-sm md:max-w-2xl mx-auto rounded-xl overflow-hidden shadow-lg bg-gradient-to-b ${weather?.gradient || 'from-blue-400 to-blue-600'} text-white font-sans transition-all duration-300 cursor-pointer hover:scale-105 hover:shadow-2xl ${dark ? 'shadow-gray-800/50' : 'shadow-lg'}`}
+    >
       {/* Close Button */}
       <button
-        onClick={() => onRemove && onRemove(weather?.id)}
+        onClick={(e) => {
+          e.stopPropagation();
+          onRemove && onRemove(weather?.id);
+        }}
         className="absolute top-2 right-2 md:top-3 md:right-3 w-6 h-6 md:w-8 md:h-8 hover:bg-white/20 text-white rounded-full flex items-center justify-center text-sm md:text-xl transition-all duration-200 z-10"
       >
         ×
       </button>
 
       {/* Main Weather Section */}
-      <div className="px-3 py-4 md:px-16 md:py-5">
+      <div 
+        className="px-3 py-4 md:px-16 md:py-5 relative"
+        style={{
+          backgroundImage: 'url(/src/assets/cardcloud.png)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          backgroundBlendMode: 'overlay'
+        }}
+      >
         {/* Mobile Layout - Centered */}
-        <div className="block md:hidden text-center">
+        <div className="block md:hidden text-center relative z-10">
           <h2 className="text-xl font-bold mb-1">
             {weather?.city}
           </h2>
@@ -42,7 +62,7 @@ const WeatherCard = ({ weather, onRemove, dark }) => {
         </div>
 
         {/* Desktop Layout */}
-        <div className="hidden md:flex md:justify-between md:items-start mb-6">
+        <div className="hidden md:flex md:justify-between md:items-start mb-6 relative z-10">
           {/* Left side - City Name, Date, Icon and Condition */}
           <div className="text-left mb-4 md:mb-0">
             <h2 className="text-2xl md:text-3xl font-bold">
@@ -52,7 +72,7 @@ const WeatherCard = ({ weather, onRemove, dark }) => {
               {weather?.date}
             </p>
             {/* Weather Icon and Condition */}
-            <div className="flex items-center">
+            <div className="flex items-center pt-4">
               <span className="text-3xl md:text-5xl mr-3 md:mr-4">
                 {weather?.icon}
               </span>
