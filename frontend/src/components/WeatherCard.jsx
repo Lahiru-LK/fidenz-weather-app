@@ -17,7 +17,7 @@ const WeatherCard = ({ weather, onRemove, dark }) => {
           e.stopPropagation();
           onRemove && onRemove(weather?.id);
         }}
-        className="absolute top-2 right-2 md:top-3 md:right-3 w-6 h-6 md:w-8 md:h-8 hover:bg-white/20 text-white rounded-full flex items-center justify-center text-sm md:text-xl transition-all duration-200 z-10"
+        className="absolute top-3 right-3 w-7 h-7 md:w-8 md:h-8 pb-1 hover:bg-white/20 bg-white/10 text-white rounded-full flex items-center justify-center text-lg md:text-xl transition-all duration-200 z-20"
       >
         ×
       </button>
@@ -120,9 +120,11 @@ const WeatherCard = ({ weather, onRemove, dark }) => {
 
           {/* Center Column - Wind */}
           <div className="flex flex-col items-center justify-center text-center md:px-4 md:border-r md:border-gray-600">
-            <svg className="w-5 h-5 md:w-6 md:h-6 mb-1" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M6.5 8.5c0-2.21 1.79-4 4-4s4 1.79 4 4c0 2.21-1.79 4-4 4s-4-1.79-4-4zM12 1L8 7l2 1 2-2 2 2 2-1-4-6zM12 23l4-6-2-1-2 2-2-2-2 1 4 6z"/>
-            </svg>
+            <img 
+              src="/src/assets/Degree.png" 
+              alt="Wind Direction" 
+              className="w-5 h-5 md:w-6 md:h-6 mb-1"
+            />
             <div className={`text-xs ${dark ? 'text-gray-100' : 'text-white'}`}>{weather?.wind}</div>
           </div>
 

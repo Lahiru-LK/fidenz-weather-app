@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import '../styles/morphAnimations.css';
 
 function App() {
   const [dark, setDark] = useState(false);
@@ -40,66 +41,6 @@ function App() {
 
   return (
     <div className={dark ? "dark" : ""}>
-      <style jsx>{`
-        @keyframes morphToNight {
-          0% {
-            opacity: 1;
-            filter: brightness(1) saturate(1) hue-rotate(0deg);
-          }
-          50% {
-            opacity: 0.3;
-            filter: brightness(0.8) saturate(1.2) hue-rotate(15deg);
-          }
-          100% {
-            opacity: 1;
-            filter: brightness(0.9) saturate(1.1) hue-rotate(30deg);
-          }
-        }
-
-        @keyframes morphToDay {
-          0% {
-            opacity: 1;
-            filter: brightness(0.9) saturate(1.1) hue-rotate(30deg);
-          }
-          50% {
-            opacity: 0.3;
-            filter: brightness(0.8) saturate(1.2) hue-rotate(15deg);
-          }
-          100% {
-            opacity: 1;
-            filter: brightness(1) saturate(1) hue-rotate(0deg);
-          }
-        }
-
-        .bg-morph-night {
-          animation: morphToNight 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-        }
-
-        .bg-morph-day {
-          animation: morphToDay 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-        }
-
-        .bg-transition {
-          transition: all 1.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .smooth-morph {
-          transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-
-        .page-load {
-          transition: opacity 1s ease-out, transform 1s ease-out;
-        }
-
-        .bg-smooth-transition {
-          transition: background-image 1s ease-in-out, filter 1s ease-in-out;
-        }
-
-        .content-smooth {
-          transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-      `}</style>
-
       <div className={`flex h-screen overflow-hidden bg-white dark:bg-gray-900 page-load ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
         {/* Left Side - Login */}
         <div className="w-full md:w-1/2 flex flex-col justify-center items-center px-8 relative smooth-morph">
@@ -108,7 +49,15 @@ function App() {
               onClick={() => setDark(!dark)}
               className="text-xl p-2 rounded-full bg-gray-200 dark:bg-gray-700 hover:scale-110 smooth-morph shadow-lg"
             >
-              {dark ? "🌙" : "☀️"}
+              {dark ? 
+                <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M9 2c-1.05 0-2.05.16-3 .46 4.06 1.27 7 5.06 7 9.54 0 4.48-2.94 8.27-7 9.54.95.3 1.95.46 3 .46 5.52 0 10-4.48 10-10S14.52 2 9 2z"/>
+                </svg>
+                : 
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M6.76 4.84l-1.8-1.79-1.41 1.41 1.79 1.79 1.42-1.41zM4 10.5H1v2h3v-2zm9-9.95h-2V3.5h2V.55zm7.45 3.91l-1.41-1.41-1.79 1.79 1.41 1.41 1.79-1.79zm-3.21 13.7l1.79 1.8 1.41-1.41-1.8-1.79-1.4 1.4zM20 10.5v2h3v-2h-3zm-8-5c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm-1 16.95h2V19.5h-2v2.95zm-7.45-3.91l1.41 1.41 1.79-1.8-1.41-1.41-1.79 1.8z"/>
+                </svg>
+              }
             </button>
           </div>
 

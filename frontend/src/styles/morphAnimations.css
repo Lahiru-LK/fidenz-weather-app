@@ -1,0 +1,78 @@
+@keyframes fadeToNight {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeToDay {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes smoothFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes transparentPulse {
+  0% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.8;
+  }
+}
+
+.bg-fade-night {
+  animation: fadeToNight 1s ease-in-out forwards;
+}
+
+.bg-fade-day {
+  animation: fadeToDay 1s ease-in-out forwards;
+}
+
+.bg-transition {
+  transition: all 1.2s ease-in-out;
+}
+
+.smooth-fade {
+  transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+}
+
+.page-load {
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.bg-smooth-transition {
+  transition: background-image 0.8s ease-in-out, opacity 0.8s ease-in-out;
+}
+
+.content-smooth {
+  animation: smoothFadeIn 0.6s ease-out forwards;
+}
+
+.transparent-pulse {
+  animation: transparentPulse 2s ease-in-out infinite;
+}

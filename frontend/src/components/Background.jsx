@@ -4,7 +4,7 @@ const Background = ({ dark, isLoaded, children }) => {
   return (
     <>
       <div 
-        className={`min-h-screen transition-all duration-500 p-6 relative ${
+        className={`min-h-screen transition-all duration-500 p-6 pt-6 ${
           dark 
             ? 'bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900' 
             : 'bg-gradient-to-br from-blue-50 via-white to-blue-100'
@@ -12,7 +12,7 @@ const Background = ({ dark, isLoaded, children }) => {
       >
         {/* Transparent background image overlay */}
         <div 
-          className="absolute inset-0 opacity-30"
+          className="fixed inset-0 opacity-30"
           style={{
             backgroundImage: 'url(/src/assets/backcloud.png)',
             backgroundSize: 'cover',

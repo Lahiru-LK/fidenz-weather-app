@@ -5,6 +5,7 @@ import WeatherCard from '../components/WeatherCard';
 import Footer from '../components/Footer';
 import Background from '../components/Background';
 import Breadcrumb from '../components/Breadcrumb';
+import '../styles/morphAnimations.css';
 
 const Dashboard = () => {
   const [searchCity, setSearchCity] = useState('');
@@ -18,7 +19,7 @@ const Dashboard = () => {
       date: '5:10am, Feb 8',
       temp: '27°C',
       condition: 'Few Clouds',
-      icon: <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 24 24"><path d="M19.35 10.04A7.49 7.49 0 0 0 12 4C9.11 4 6.6 5.64 5.35 8.04A5.994 5.994 0 0 0 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM12 8c2.21 0 4 1.79 4 4 0 2.21-1.79 4-4 4s-4-1.79-4-4c0-2.21 1.79-4 4-4z"/></svg>,
+      icon: <img src="/src/assets/Few Clouds.png" alt="Few Clouds" className="w-12 h-12" />,
       tempMin: '25°C',
       tempMax: '28°C',
       gradient: 'from-blue-400 to-blue-600',
@@ -35,7 +36,7 @@ const Dashboard = () => {
       date: '5:10am, Feb 8',
       temp: '7°C',
       condition: 'Broken Clouds',
-      icon: <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 24 24"><path d="M19.35 10.04A7.49 7.49 0 0 0 12 4C9.11 4 6.6 5.64 5.35 8.04A5.994 5.994 0 0 0 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"/></svg>,
+      icon: <img src="/src/assets/BrokenClouds.png" alt="Broken Clouds" className="w-12 h-12" />,
       tempMin: '7°C',
       tempMax: '7°C',
       gradient: 'from-purple-400 to-purple-600',
@@ -52,7 +53,7 @@ const Dashboard = () => {
       date: '5:10am, Feb 8',
       temp: '-2°C',
       condition: 'Clear Sky',
-      icon: <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 24 24"><path d="M6.76 4.84l-1.8-1.79-1.41 1.41 1.79 1.79 1.42-1.41zM4 10.5H1v2h3v-2zm9-9.95h-2V3.5h2V.55zm7.45 3.91l-1.41-1.41-1.79 1.79 1.41 1.41 1.79-1.79zm-3.21 13.7l1.79 1.8 1.41-1.41-1.8-1.79-1.4 1.4zM20 10.5v2h3v-2h-3zm-8-5c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm-1 16.95h2V19.5h-2v2.95zm-7.45-3.91l1.41 1.41 1.79-1.8-1.41-1.41-1.79 1.8z"/></svg>,
+      icon: <img src="/src/assets/ClearSky.png" alt="Clear Sky" className="w-12 h-12" />,
       tempMin: '2°C',
       tempMax: '5°C',
       gradient: 'from-green-400 to-green-600',
@@ -69,7 +70,7 @@ const Dashboard = () => {
       date: '5:10am, Feb 8',
       temp: '26°C',
       condition: 'Light Rain',
-      icon: <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 24 24"><path d="M12.73 5.08L11.15 3.5c-.58-.58-1.34-.92-2.15-.92s-1.57.34-2.15.92L2.93 7.42c-1.18 1.18-1.18 3.1 0 4.28l.71.71c.78.78 2.05.78 2.83 0l.71-.71c.39-.39.9-.59 1.41-.59s1.02.2 1.41.59l3.54 3.54c.78.78 2.05.78 2.83 0l.71-.71c1.18-1.18 1.18-3.1 0-4.28l-3.92-3.92z"/></svg>,
+      icon: <img src="/src/assets/LightRain.png" alt="Light Rain" className="w-12 h-12" />,
       tempMin: '30°C',
       tempMax: '30°C',
       gradient: 'from-orange-400 to-orange-600',
@@ -86,7 +87,7 @@ const Dashboard = () => {
       date: '5:10am, Feb 8',
       temp: '13°C',
       condition: 'Mist',
-      icon: <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 24 24"><path d="M3 15h18v-2H3v2zm0 4h18v-2H3v2zm0-8h18V9H3v2zm0-6v2h18V5H3z"/></svg>,
+      icon: <img src="/src/assets/Mist.png" alt="Mist" className="w-12 h-12" />,
       tempMin: '10°C',
       tempMax: '15°C',
       gradient: 'from-red-400 to-red-600',
@@ -99,35 +100,35 @@ const Dashboard = () => {
     },
     {
       id: 6,
-      city: 'Boston, US',
+      city: 'New York, US',
       date: '5:10am, Feb 8',
-      temp: '13°C',
-      condition: 'Mist',
-      icon: <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 24 24"><path d="M3 15h18v-2H3v2zm0 4h18v-2H3v2zm0-8h18V9H3v2zm0-6v2h18V5H3z"/></svg>,
-      tempMin: '10°C',
-      tempMax: '15°C',
-      gradient: 'from-red-400 to-red-600',
+      temp: '5°C',
+      condition: 'Snow',
+      icon: <img src="/src/assets/snow.png" alt="Snow" className="w-12 h-12" />,
+      tempMin: '3°C',
+      tempMax: '7°C',
+      gradient: 'from-gray-400 to-gray-600',
       pressure: '1018hPa',
-      humidity: '78%',
-      visibility: '3.0km',
-      wind: '4.0m/s 120 Degree',
+      humidity: '85%',
+      visibility: '2.0km',
+      wind: '3.0m/s 90 Degree',
       sunrise: '6:05am',
       sunset: '6:35am'
     },
     {
       id: 7,
-      city: 'Boston, US',
+      city: 'Miami, US',
       date: '5:10am, Feb 8',
-      temp: '13°C',
-      condition: 'Mist',
-      icon: <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 24 24"><path d="M3 15h18v-2H3v2zm0 4h18v-2H3v2zm0-8h18V9H3v2zm0-6v2h18V5H3z"/></svg>,
-      tempMin: '10°C',
-      tempMax: '15°C',
-      gradient: 'from-red-400 to-red-600',
-      pressure: '1018hPa',
-      humidity: '78%',
-      visibility: '3.0km',
-      wind: '4.0m/s 120 Degree',
+      temp: '28°C',
+      condition: 'Thunderstorm',
+      icon: <img src="/src/assets/Thunderstorm.png" alt="Thunderstorm" className="w-12 h-12" />,
+      tempMin: '26°C',
+      tempMax: '30°C',
+      gradient: 'from-purple-500 to-purple-700',
+      pressure: '1015hPa',
+      humidity: '90%',
+      visibility: '1.5km',
+      wind: '8.0m/s 180 Degree',
       sunrise: '6:05am',
       sunset: '6:35am'
     }
@@ -157,52 +158,66 @@ const Dashboard = () => {
 
   return (
     <div className={dark ? "dark" : ""}>
-      <Header dark={dark} setDark={setDark} />
-      
-      <Background dark={dark} isLoaded={isLoaded}>
-        <Breadcrumb dark={dark} />
+      <div className={`smooth-morph page-load ${isLoaded ? 'opacity-100' : 'opacity-0'} ${dark ? 'bg-morph-night' : 'bg-morph-day'}`}>
+        <Header dark={dark} setDark={setDark} />
+        
+        <div className="bg-smooth-transition">
+          <Background dark={dark} isLoaded={isLoaded}>
+            <div className="content-smooth">
+              <div className="smooth-morph">
+                <Breadcrumb dark={dark} />
+              </div>
 
-        <SearchBar
-          searchCity={searchCity}
-          setSearchCity={setSearchCity}
-          onAddCity={handleAddCity}
-          dark={dark}
-        />
+              <div className="smooth-morph">
+                <SearchBar
+                  searchCity={searchCity}
+                  setSearchCity={setSearchCity}
+                  onAddCity={handleAddCity}
+                  dark={dark}
+                />
+              </div>
 
-        {/* Weather Cards Grid */}
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
-          {displayedCards.map((weather, index) => (
-            <div key={weather.id} style={{ animationDelay: `${index * 100}ms` }}>
-              <WeatherCard
-                weather={weather}
-                onRemove={handleRemoveCity}
-                dark={dark}
-              />
+              {/* Weather Cards Grid */}
+              <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 content-smooth">
+                {displayedCards.map((weather, index) => (
+                  <div key={weather.id} style={{ animationDelay: `${index * 100}ms` }} className="smooth-morph">
+                    <WeatherCard
+                      weather={weather}
+                      onRemove={handleRemoveCity}
+                      dark={dark}
+                    />
+                  </div>
+                ))}
+              </div>
+
+              {/* See More Button */}
+              {hasMoreCards && (
+                <div className="text-center mt-6 content-smooth">
+                  <button
+                    onClick={() => setShowAll(!showAll)}
+                    className={`px-6 py-2 rounded-lg font-medium smooth-morph ${dark
+                        ? 'bg-indigo-600 hover:bg-indigo-700 text-white'
+                        : 'bg-indigo-500 hover:bg-indigo-600 text-white'
+                      }`}
+                  >
+                    {showAll ? 'Show Less' : 'See More'}
+                  </button>
+                </div>
+              )}
             </div>
-          ))}
+          </Background>
+          
         </div>
-
-        {/* See More Button */}
-        {hasMoreCards && (
-          <div className="text-center mt-6">
-            <button
-              onClick={() => setShowAll(!showAll)}
-              className={`px-6 py-2 rounded-lg font-medium transition-colors duration-300 ${
-                dark
-                  ? 'bg-indigo-600 hover:bg-indigo-700 text-white'
-                  : 'bg-indigo-500 hover:bg-indigo-600 text-white'
-              }`}
-            >
-              {showAll ? 'Show Less' : 'See More'}
-            </button>
-          </div>
-        )}
-      </Background>
-      
-      <Footer dark={dark} />
+        
+        <div className="smooth-morph">
+          <Footer dark={dark} />
+        </div>
+      </div>
     </div>
   );
 };
+
+
 
 export default Dashboard;
 

@@ -8,7 +8,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Login />} />
         {/* Later add: Dashboard, CityWeatherView */}
         <Route path="/dashboard" element={<Dashboard />} />
                                                                                                                           
