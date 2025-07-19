@@ -76,3 +76,20 @@
 .transparent-pulse {
   animation: transparentPulse 2s ease-in-out infinite;
 }
+
+.smooth-morph {
+  transition: all 0.3s ease-in-out;
+}
+
+.bg-morph-dashboard {
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.bg-morph-night {
+  background: linear-gradient(135deg, rgba(17, 24, 39, 0.95), rgba(31, 41, 55, 0.95));
+}
+
+.bg-morph-day {
+  background: linear-gradient(135deg, rgba(239, 246, 255, 0.95), rgba(219, 234, 254, 0.95));
+}
