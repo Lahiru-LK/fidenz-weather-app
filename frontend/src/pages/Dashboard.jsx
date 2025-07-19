@@ -10,7 +10,10 @@ import '../styles/morphAnimations.css';
 const Dashboard = () => {
   const [searchCity, setSearchCity] = useState('');
   const [isLoaded, setIsLoaded] = useState(false);
-  const [dark, setDark] = useState(false);
+  const [dark, setDark] = useState(() => {
+    const savedDarkMode = localStorage.getItem('darkMode');
+    return savedDarkMode ? JSON.parse(savedDarkMode) : false;
+  });
   const [showAll, setShowAll] = useState(false);
   const [weatherData, setWeatherData] = useState([
     {
@@ -133,6 +136,11 @@ const Dashboard = () => {
       sunset: '6:35am'
     }
   ]);
+
+  // Save dark mode to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem('darkMode', JSON.stringify(dark));
+  }, [dark]);
 
   useEffect(() => {
     const timer = setTimeout(() => {

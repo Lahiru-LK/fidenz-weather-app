@@ -3,12 +3,20 @@ import { useNavigate } from "react-router-dom";
 import '../styles/morphAnimations.css';
 
 function App() {
-  const [dark, setDark] = useState(false);
+  const [dark, setDark] = useState(() => {
+    const savedDarkMode = localStorage.getItem('darkMode');
+    return savedDarkMode ? JSON.parse(savedDarkMode) : false;
+  });
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({ email: false, password: false });
   const [isLoaded, setIsLoaded] = useState(false);
   const navigate = useNavigate();
+
+  // Save dark mode to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem('darkMode', JSON.stringify(dark));
+  }, [dark]);
 
   useEffect(() => {
     setIsLoaded(true);
