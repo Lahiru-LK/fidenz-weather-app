@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import UserProfile from './UserProfile';
 
@@ -14,6 +14,12 @@ const Header = ({ dark, setDark }) => {
   const handleNavigation = (path) => {
     navigate(path);
     setShowMobileMenu(false);
+  };
+
+  const handleDarkModeToggle = () => {
+    const newDarkMode = !dark;
+    setDark(newDarkMode);
+    localStorage.setItem('darkMode', JSON.stringify(newDarkMode));
   };
 
   return (
@@ -41,7 +47,7 @@ const Header = ({ dark, setDark }) => {
       {/* Desktop - Dark Mode Toggle */}
       <div className="hidden md:block absolute top-6 right-52">
         <button
-          onClick={() => setDark(!dark)}
+          onClick={handleDarkModeToggle}
           className={`text-xl p-2 rounded-full transition-all duration-300 shadow-lg hover:scale-110 ${
             dark 
               ? 'bg-gray-700 text-gray-300 hover:bg-gray-600' 
@@ -114,7 +120,7 @@ const Header = ({ dark, setDark }) => {
               <div className="border-t border-gray-300 my-2"></div>
               
               <button
-                onClick={() => setDark(!dark)}
+                onClick={handleDarkModeToggle}
                 className={`w-full text-left px-4 py-3 text-sm transition-colors duration-200 flex items-center space-x-3 ${
                   dark 
                     ? 'text-gray-200 hover:bg-gray-700' 

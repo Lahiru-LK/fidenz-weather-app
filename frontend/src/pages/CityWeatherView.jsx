@@ -11,8 +11,16 @@ const CityWeatherView = () => {
     const { cityId } = useParams();
     const navigate = useNavigate();
     const [isLoaded, setIsLoaded] = useState(false);
-    const [dark, setDark] = useState(false);
+    const [dark, setDark] = useState(() => {
+        const savedDarkMode = localStorage.getItem('darkMode');
+        return savedDarkMode ? JSON.parse(savedDarkMode) : false;
+    });
     const [weatherData, setWeatherData] = useState(null);
+
+    // Save dark mode to localStorage whenever it changes
+    useEffect(() => {
+        localStorage.setItem('darkMode', JSON.stringify(dark));
+    }, [dark]);
 
     // Sample weather data based on cityId - in real app, fetch from API
     const getWeatherDataById = (id) => {
