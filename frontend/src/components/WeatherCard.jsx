@@ -110,16 +110,16 @@ const WeatherCard = ({ weather, onRemove, dark }) => {
           {/* Left Column */}
           <div className="space-y-1 md:pr-4 md:border-r md:border-gray-600">
             <div className="text-center md:text-left">
-              <div className={`text-xs ${dark ? 'text-gray-400' : 'text-gray-300'}`}>Pressure</div>
-              <div className={`text-xs font-medium ${dark ? 'text-gray-100' : 'text-white'}`}>{weather?.pressure}</div>
+              <span className={`text-xs ${dark ? 'text-gray-400' : 'text-gray-300'}`}>Pressure: </span>
+              <span className={`text-xs font-medium ${dark ? 'text-gray-100' : 'text-white'}`}>{weather?.pressure}</span>
             </div>
             <div className="text-center md:text-left">
-              <div className={`text-xs ${dark ? 'text-gray-400' : 'text-gray-300'}`}>Humidity</div>
-              <div className={`text-xs font-medium ${dark ? 'text-gray-100' : 'text-white'}`}>{weather?.humidity}</div>
+              <span className={`text-xs ${dark ? 'text-gray-400' : 'text-gray-300'}`}>Humidity: </span>
+              <span className={`text-xs font-medium ${dark ? 'text-gray-100' : 'text-white'}`}>{weather?.humidity}</span>
             </div>
             <div className="text-center md:text-left">
-              <div className={`text-xs ${dark ? 'text-gray-400' : 'text-gray-300'}`}>Visibility</div>
-              <div className={`text-xs font-medium ${dark ? 'text-gray-100' : 'text-white'}`}>{weather?.visibility}</div>
+              <span className={`text-xs ${dark ? 'text-gray-400' : 'text-gray-300'}`}>Visibility: </span>
+              <span className={`text-xs font-medium ${dark ? 'text-gray-100' : 'text-white'}`}>{weather?.visibility}</span>
             </div>
           </div>
 
@@ -136,12 +136,12 @@ const WeatherCard = ({ weather, onRemove, dark }) => {
           {/* Right Column */}
           <div className="space-y-1 md:pl-4">
             <div className="text-center md:text-left">
-              <div className={`text-xs ${dark ? 'text-gray-400' : 'text-gray-300'}`}>Sunrise</div>
-              <div className={`text-xs font-medium ${dark ? 'text-gray-100' : 'text-white'}`}>{weather?.sunrise}</div>
+              <span className={`text-xs ${dark ? 'text-gray-400' : 'text-gray-300'}`}>Sunrise: </span>
+              <span className={`text-xs font-medium ${dark ? 'text-gray-100' : 'text-white'}`}>{weather?.sunrise}</span>
             </div>
             <div className="text-center md:text-left">
-              <div className={`text-xs ${dark ? 'text-gray-400' : 'text-gray-300'}`}>Sunset</div>
-              <div className={`text-xs font-medium ${dark ? 'text-gray-100' : 'text-white'}`}>{weather?.sunset}</div>
+              <span className={`text-xs ${dark ? 'text-gray-400' : 'text-gray-300'}`}>Sunset: </span>
+              <span className={`text-xs font-medium ${dark ? 'text-gray-100' : 'text-white'}`}>{weather?.sunset}</span>
             </div>
           </div>
         </div>
