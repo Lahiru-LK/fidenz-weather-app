@@ -176,7 +176,7 @@ const Dashboard = () => {
                 <Breadcrumb dark={dark} />
               </div>
 
-              <div className="smooth-morph">
+              <div className="smooth-morph px-4">
                 <SearchBar
                   searchCity={searchCity}
                   setSearchCity={setSearchCity}
@@ -186,7 +186,7 @@ const Dashboard = () => {
               </div>
 
               {/* Weather Cards Grid */}
-              <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 content-smooth">
+              <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 content-smooth px-4">
                 {displayedCards.map((weather, index) => (
                   <div key={weather.id} style={{ animationDelay: `${index * 100}ms` }} className="smooth-morph">
                     <WeatherCard
@@ -200,7 +200,7 @@ const Dashboard = () => {
 
               {/* See More Button */}
               {hasMoreCards && (
-                <div className="text-center mt-6 content-smooth pb-2">
+                <div className="text-center mt-6 content-smooth pb-2 px-4">
                   <button
                     onClick={() => setShowAll(!showAll)}
                     className={`px-6 py-2 rounded-lg font-medium smooth-morph ${dark

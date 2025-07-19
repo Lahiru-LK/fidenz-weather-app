@@ -20,14 +20,14 @@ const WeatherCard = ({ weather, onRemove, dark }) => {
           e.stopPropagation();
           onRemove && onRemove(weather?.id);
         }}
-        className="absolute top-3 right-3 w-7 h-7 md:w-8 md:h-8 pb-1 hover:bg-white/20 bg-white/10 text-white rounded-full flex items-center justify-center text-lg md:text-xl transition-all duration-200 z-20"
+        className="absolute top-2 right-2 md:top-3 md:right-3 w-6 h-6 md:w-8 md:h-8 hover:bg-white/20 bg-white/10 text-white rounded-full flex items-center justify-center text-sm md:text-xl transition-all duration-200 z-20"
       >
         ×
       </button>
 
       {/* Main Weather Section */}
       <div 
-        className="px-3 py-4 md:px-16 md:py-5 relative"
+        className="px-3 py-3 md:px-16 md:py-5 relative"
         style={{
           backgroundImage: 'url(/src/assets/cardcloud.png)',
           backgroundSize: 'cover',
@@ -37,30 +37,32 @@ const WeatherCard = ({ weather, onRemove, dark }) => {
         }}
       >
         {/* Mobile Layout - Centered */}
-        <div className="block md:hidden text-center relative z-10 ">
-          <h2 className="text-xl font-bold mb-1">
+        <div className="block md:hidden text-center relative z-10">
+          <h2 className="text-lg font-bold mb-1 text-center">
             {weather?.city}
           </h2>
-          <p className="text-xs opacity-80 mb-3">
+          <p className="text-xs opacity-80 mb-2">
             {weather?.date}
           </p>
           
           {/* Weather Icon and Condition - Mobile */}
-          <div className="flex items-center justify-center mb-3">
-            <span className="text-3xl mr-2">
+          <div className="flex flex-col items-center mb-2">
+            <span className="text-2xl mb-1">
               {weather?.icon}
             </span>
-            <span className="text-base">
+            <span className="text-sm">
               {weather?.condition}
             </span>
           </div>
           
           {/* Temperature - Mobile */}
-          <h1 className="text-4xl font-bold leading-none mb-2">
+          <h1 className="text-3xl font-bold leading-none mb-1">
             {weather?.temp}
           </h1>
           <div className="text-xs opacity-80">
-            <div>Min: {weather?.tempMin} | Max: {weather?.tempMax}</div>
+            <span>Min: {weather?.tempMin}</span>
+            <span className="mx-1">|</span>
+            <span>Max: {weather?.tempMax}</span>
           </div>
         </div>
 
@@ -99,25 +101,25 @@ const WeatherCard = ({ weather, onRemove, dark }) => {
       </div>
 
       {/* Details Section */}
-      <div className={`px-3 py-2 md:px-16 md:py-8 ${
+      <div className={`px-2 py-2 md:px-16 md:py-8 ${
         dark 
           ? 'bg-gray-900/90 border-t border-gray-700' 
           : 'bg-gray-800/80'
       }`}>
-        <div className="grid grid-cols-3 gap-2 md:gap-4 text-xs">
+        <div className="grid grid-cols-3 gap-1 md:gap-4 text-xs">
           {/* Left Column */}
           <div className="space-y-1 md:pr-4 md:border-r md:border-gray-600">
             <div className="text-center md:text-left">
-              <span className={`text-xs ${dark ? 'text-gray-400' : 'text-gray-300'}`}>Pressure: </span>
-              <span className={`text-xs ${dark ? 'text-gray-100' : 'text-white'}`}>{weather?.pressure}</span>
+              <div className={`text-xs ${dark ? 'text-gray-400' : 'text-gray-300'}`}>Pressure</div>
+              <div className={`text-xs font-medium ${dark ? 'text-gray-100' : 'text-white'}`}>{weather?.pressure}</div>
             </div>
             <div className="text-center md:text-left">
-              <span className={`text-xs ${dark ? 'text-gray-400' : 'text-gray-300'}`}>Humidity: </span>
-              <span className={`text-xs ${dark ? 'text-gray-100' : 'text-white'}`}>{weather?.humidity}</span>
+              <div className={`text-xs ${dark ? 'text-gray-400' : 'text-gray-300'}`}>Humidity</div>
+              <div className={`text-xs font-medium ${dark ? 'text-gray-100' : 'text-white'}`}>{weather?.humidity}</div>
             </div>
             <div className="text-center md:text-left">
-              <span className={`text-xs ${dark ? 'text-gray-400' : 'text-gray-300'}`}>Visibility: </span>
-              <span className={`text-xs ${dark ? 'text-gray-100' : 'text-white'}`}>{weather?.visibility}</span>
+              <div className={`text-xs ${dark ? 'text-gray-400' : 'text-gray-300'}`}>Visibility</div>
+              <div className={`text-xs font-medium ${dark ? 'text-gray-100' : 'text-white'}`}>{weather?.visibility}</div>
             </div>
           </div>
 
@@ -126,20 +128,20 @@ const WeatherCard = ({ weather, onRemove, dark }) => {
             <img 
               src="/src/assets/Degree.png" 
               alt="Wind Direction" 
-              className="w-5 h-5 md:w-6 md:h-6 mb-1"
+              className="w-4 h-4 md:w-6 md:h-6 mb-1"
             />
-            <div className={`text-xs ${dark ? 'text-gray-100' : 'text-white'}`}>{weather?.wind}</div>
+            <div className={`text-xs text-center ${dark ? 'text-gray-100' : 'text-white'}`}>{weather?.wind}</div>
           </div>
 
           {/* Right Column */}
           <div className="space-y-1 md:pl-4">
             <div className="text-center md:text-left">
-              <span className={`text-xs ${dark ? 'text-gray-400' : 'text-gray-300'}`}>Sunrise: </span>
-              <span className={`text-xs ${dark ? 'text-gray-100' : 'text-white'}`}>{weather?.sunrise}</span>
+              <div className={`text-xs ${dark ? 'text-gray-400' : 'text-gray-300'}`}>Sunrise</div>
+              <div className={`text-xs font-medium ${dark ? 'text-gray-100' : 'text-white'}`}>{weather?.sunrise}</div>
             </div>
             <div className="text-center md:text-left">
-              <span className={`text-xs ${dark ? 'text-gray-400' : 'text-gray-300'}`}>Sunset: </span>
-              <span className={`text-xs ${dark ? 'text-gray-100' : 'text-white'}`}>{weather?.sunset}</span>
+              <div className={`text-xs ${dark ? 'text-gray-400' : 'text-gray-300'}`}>Sunset</div>
+              <div className={`text-xs font-medium ${dark ? 'text-gray-100' : 'text-white'}`}>{weather?.sunset}</div>
             </div>
           </div>
         </div>

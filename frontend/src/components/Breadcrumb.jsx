@@ -20,7 +20,6 @@ const Breadcrumb = ({ dark }) => {
               dark ? 'hover:text-white' : 'hover:text-black'
             }`}
           >
-            Home
           </span>
           <span className="mx-2">/</span>
           <span 
