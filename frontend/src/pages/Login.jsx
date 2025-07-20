@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuth0 } from '@auth0/auth0-react';
 import '../styles/morphAnimations.css';
 import LogBkImg from '../assets/logbkimg.png';
 import LogBkImg2 from '../assets/logbkimg2.png';
@@ -9,11 +10,9 @@ function App() {
     const savedDarkMode = localStorage.getItem('darkMode');
     return savedDarkMode ? JSON.parse(savedDarkMode) : false;
   });
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [errors, setErrors] = useState({ email: false, password: false });
   const [isLoaded, setIsLoaded] = useState(false);
   const navigate = useNavigate();
+  const { loginWithRedirect, isAuthenticated, isLoading, error } = useAuth0();
 
   // Save dark mode to localStorage whenever it changes
   useEffect(() => {
@@ -24,30 +23,56 @@ function App() {
     setIsLoaded(true);
   }, []);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const newErrors = {
-      email: email.trim() === "",
-      password: password.trim() === "",
-    };
-    setErrors(newErrors);
-
-    if (!newErrors.email && !newErrors.password) {
+  // Redirect to dashboard if authenticated
+  useEffect(() => {
+    if (isAuthenticated) {
       navigate("/dashboard");
     }
+  }, [isAuthenticated, navigate]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    loginWithRedirect();
   };
 
   const handleViewWeather = () => {
-    const newErrors = {
-      email: email.trim() === "",
-      password: password.trim() === "",
-    };
-    setErrors(newErrors);
-
-    if (!newErrors.email && !newErrors.password) {
-      navigate("/dashboard");
-    }
+    loginWithRedirect();
   };
+
+  // Error state handle කරන්න
+  if (error) {
+    return (
+      <div className={dark ? "dark" : ""}>
+        <div className="flex h-screen items-center justify-center bg-white dark:bg-gray-900">
+          <div className="text-center max-w-md mx-auto p-8">
+            <div className="text-red-500 text-xl mb-4">⚠️ Auth0 Error</div>
+            <div className="text-gray-700 dark:text-gray-300 mb-4">
+              {error.message}
+            </div>
+            <button
+              onClick={() => window.location.reload()}
+              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded font-semibold"
+            >
+              Try Again
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (isLoading) {
+    return (
+      <div className={dark ? "dark" : ""}>
+        <div className="flex h-screen items-center justify-center bg-white dark:bg-gray-900">
+          <div className="text-center">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+            <div className="text-xl text-gray-900 dark:text-white">Connecting to Auth0...</div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className={dark ? "dark" : ""}>
@@ -79,57 +104,30 @@ function App() {
             Sign in to check your weather dashboard.
           </p>
 
-          <form onSubmit={handleSubmit} className="w-full max-w-sm space-y-4 content-smooth">
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Email"
-              className={`w-full p-3 rounded border smooth-morph ${errors.email ? "border-red-500" : "border-gray-300"
-                } dark:bg-gray-800 dark:border-gray-700 dark:text-white`}
-            />
-            {errors.email && (
-              <p className="text-red-500 text-xs">Please enter your email</p>
+          {/* Auth0 Login/Signup Buttons */}
+          <div className="w-full max-w-sm space-y-4 content-smooth">
+            {error && (
+              <div className="text-red-500 text-center">{error.message}</div>
             )}
-
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="Password"
-              className={`w-full p-3 rounded border smooth-morph ${errors.password ? "border-red-500" : "border-gray-300"
-                } dark:bg-gray-800 dark:border-gray-700 dark:text-white`}
-            />
-            {errors.password && (
-              <p className="text-red-500 text-xs">Please enter your password</p>
-            )}
-
-            <div className="flex justify-between text-sm text-blue-600 dark:text-blue-400">
-              <button
-                type="button"
-                onClick={() => navigate("/")}
-                className="hover:underline"
-              >
-                Forgot password?
-              </button>
-            </div>
             <button
-              type="submit"
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white p-3 rounded font-semibold smooth-morph"
+              type="button"
+              onClick={() => loginWithRedirect({ authorizationParams: { screen_hint: "signup" } })}
+              className="w-full bg-blue-600 hover:bg-blue-700 text-white p-3 rounded font-semibold smooth-morph mb-2"
             >
-              Sign in
+              Signup with Auth0
             </button>
-            <p className="text-sm text-gray-600 dark:text-gray-300 text-center">
-              Don't have an account?{" "}
-              <button
-                type="button"
-                onClick={() => navigate("/")}
-                className="text-blue-600 dark:text-blue-400 hover:underline"
-              >
-                Sign up for free
-              </button>
+            <button
+              type="button"
+              onClick={() => loginWithRedirect()}
+              className="w-full bg-blue-500 hover:bg-blue-600 text-white p-3 rounded font-semibold smooth-morph"
+            >
+              Login with Auth0
+            </button>
+            <p className="text-sm text-gray-600 dark:text-gray-300 text-center mt-2">
+              Secure authentication powered by{" "}
+              <span className="text-blue-600 dark:text-blue-400 font-semibold">Auth0</span>
             </p>
-          </form>
+          </div>
         </div>
 
         {/* Right Side - Weather Info */}

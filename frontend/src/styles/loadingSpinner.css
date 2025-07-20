@@ -1,0 +1,19 @@
+@keyframes beat {
+  0%, 80%, 100% {
+    transform: scale(0.7);
+    opacity: 0.5;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.beat-dot {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #2563eb;
+  animation: beat 0.7s infinite;
+  margin-right: 0.5rem;
+}
