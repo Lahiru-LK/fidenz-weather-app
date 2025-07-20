@@ -1,4 +1,5 @@
 import React from 'react';
+import BackCloud from '../assets/backcloud.png';
 
 const Background = ({ dark, isLoaded, children }) => {
   return (
@@ -8,7 +9,7 @@ const Background = ({ dark, isLoaded, children }) => {
       <div
         className="absolute inset-0 bg-opacity-100-z-10 "
         style={{
-          backgroundImage: `url(${import.meta.env.BASE_URL}assets/backcloud.png)`,
+          backgroundImage: `url(${BackCloud})`,
           backgroundSize: 'cover',
           backgroundPosition: 'top center',
           backgroundRepeat: 'no-repeat',

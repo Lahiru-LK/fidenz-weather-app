@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import UserProfile from './UserProfile';
+import MainLogo from '../assets/mainlogo.png';
 
 const Header = ({ dark, setDark }) => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
@@ -30,7 +31,7 @@ const Header = ({ dark, setDark }) => {
     }`}>
       <div className="flex items-center justify-center">
         <img 
-          src={`${import.meta.env.BASE_URL}assets/mainlogo.png`}
+          src={MainLogo}
           alt="Weather App Logo" 
           className="w-16 h-16 mr-2"
         />

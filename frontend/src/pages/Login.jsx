@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import '../styles/morphAnimations.css';
+import LogBkImg from '../assets/logbkimg.png';
+import LogBkImg2 from '../assets/logbkimg2.png';
 
 function App() {
   const [dark, setDark] = useState(() => {
@@ -134,7 +136,7 @@ function App() {
         <div
           className={`hidden md:flex md:w-1/2 bg-blue-600 dark:bg-blue-500 text-white flex-col justify-center p-12 rounded-l-3xl relative overflow-hidden bg-smooth-transition smooth-morph`}
           style={{
-            backgroundImage: `url(${import.meta.env.BASE_URL}assets/${dark ? 'logbkimg2.png' : 'logbkimg.png'})`,
+            backgroundImage: `url(${dark ? LogBkImg2 : LogBkImg})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',

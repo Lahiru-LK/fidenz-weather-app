@@ -1,5 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import CardCloud from '../assets/cardcloud.png';
+import DegreeIcon from '../assets/Degree.png';
 
 const WeatherCard = ({ weather, onRemove, dark }) => {
   const navigate = useNavigate();
@@ -29,7 +31,7 @@ const WeatherCard = ({ weather, onRemove, dark }) => {
       <div 
         className="px-3 py-3 md:px-16 md:py-5 relative"
         style={{
-          backgroundImage: `url(${import.meta.env.BASE_URL}assets/cardcloud.png)`,
+          backgroundImage: `url(${CardCloud})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
@@ -126,7 +128,7 @@ const WeatherCard = ({ weather, onRemove, dark }) => {
           {/* Center Column - Wind */}
           <div className="flex flex-col items-center justify-center text-center md:px-4 md:border-r md:border-gray-600">
             <img 
-              src={`${import.meta.env.BASE_URL}assets/Degree.png`}
+              src={DegreeIcon}
               alt="Wind Direction" 
               className="w-4 h-4 md:w-6 md:h-6 mb-1"
             />
