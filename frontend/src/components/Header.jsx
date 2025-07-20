@@ -30,7 +30,7 @@ const Header = ({ dark, setDark }) => {
     }`}>
       <div className="flex items-center justify-center">
         <img 
-          src="/public/assets/mainlogo.png" 
+          src="/assets/mainlogo.png" 
           alt="Weather App Logo" 
           className="w-16 h-16 mr-2"
         />
