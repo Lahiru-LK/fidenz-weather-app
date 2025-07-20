@@ -8,7 +8,7 @@ const Background = ({ dark, isLoaded, children }) => {
       <div
         className="absolute inset-0 bg-opacity-100-z-10 "
         style={{
-          backgroundImage: 'url(/src/assets/backcloud.png)',
+          backgroundImage: 'url(/public/assets/backcloud.png)',
           backgroundSize: 'cover',
           backgroundPosition: 'top center',
           backgroundRepeat: 'no-repeat',
