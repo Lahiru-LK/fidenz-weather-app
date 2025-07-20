@@ -6,6 +6,13 @@ import Footer from '../components/Footer';
 import Background from '../components/Background';
 import Breadcrumb from '../components/Breadcrumb';
 import '../styles/morphAnimations.css';
+import FewClouds from '../assets/Few Clouds.png';
+import BrokenClouds from '../assets/BrokenClouds.png';
+import ClearSky from '../assets/ClearSky.png';
+import LightRain from '../assets/LightRain.png';
+import Mist from '../assets/Mist.png';
+import Snow from '../assets/snow.png';
+import Thunderstorm from '../assets/Thunderstorm.png';
 
 const Dashboard = () => {
   const [searchCity, setSearchCity] = useState('');
@@ -22,7 +29,7 @@ const Dashboard = () => {
       date: '5:10am, Feb 8',
       temp: '27°C',
       condition: 'Few Clouds',
-      icon: <img src={`${import.meta.env.BASE_URL}assets/Few Clouds.png`} alt="Few Clouds" className="w-12 h-12" />,
+      icon: <img src={FewClouds} alt="Few Clouds" className="w-12 h-12" />,
       tempMin: '25°C',
       tempMax: '28°C',
       gradient: 'from-blue-400 to-blue-600',
@@ -39,7 +46,7 @@ const Dashboard = () => {
       date: '5:10am, Feb 8',
       temp: '7°C',
       condition: 'Broken Clouds',
-      icon: <img src={`${import.meta.env.BASE_URL}assets/BrokenClouds.png`} alt="Broken Clouds" className="w-12 h-12" />,
+      icon: <img src={BrokenClouds} alt="Broken Clouds" className="w-12 h-12" />,
       tempMin: '7°C',
       tempMax: '7°C',
       gradient: 'from-purple-400 to-purple-600',
@@ -56,7 +63,7 @@ const Dashboard = () => {
       date: '5:10am, Feb 8',
       temp: '-2°C',
       condition: 'Clear Sky',
-      icon: <img src={`${import.meta.env.BASE_URL}assets/ClearSky.png`} alt="Clear Sky" className="w-12 h-12" />,
+      icon: <img src={ClearSky} alt="Clear Sky" className="w-12 h-12" />,
       tempMin: '2°C',
       tempMax: '5°C',
       gradient: 'from-green-400 to-green-600',
@@ -73,7 +80,7 @@ const Dashboard = () => {
       date: '5:10am, Feb 8',
       temp: '26°C',
       condition: 'Light Rain',
-      icon: <img src={`${import.meta.env.BASE_URL}assets/LightRain.png`} alt="Light Rain" className="w-12 h-12" />,
+      icon: <img src={LightRain} alt="Light Rain" className="w-12 h-12" />,
       tempMin: '30°C',
       tempMax: '30°C',
       gradient: 'from-orange-400 to-orange-600',
@@ -90,7 +97,7 @@ const Dashboard = () => {
       date: '5:10am, Feb 8',
       temp: '13°C',
       condition: 'Mist',
-      icon: <img src={`${import.meta.env.BASE_URL}assets/Mist.png`} alt="Mist" className="w-12 h-12" />,
+      icon: <img src={Mist} alt="Mist" className="w-12 h-12" />,
       tempMin: '10°C',
       tempMax: '15°C',
       gradient: 'from-red-400 to-red-600',
@@ -107,7 +114,7 @@ const Dashboard = () => {
       date: '5:10am, Feb 8',
       temp: '5°C',
       condition: 'Snow',
-      icon: <img src={`${import.meta.env.BASE_URL}assets/snow.png`} alt="Snow" className="w-12 h-12" />,
+      icon: <img src={Snow} alt="Snow" className="w-12 h-12" />,
       tempMin: '3°C',
       tempMax: '7°C',
       gradient: 'from-gray-400 to-gray-600',
@@ -124,7 +131,7 @@ const Dashboard = () => {
       date: '5:10am, Feb 8',
       temp: '28°C',
       condition: 'Thunderstorm',
-      icon: <img src={`${import.meta.env.BASE_URL}assets/Thunderstorm.png`} alt="Thunderstorm" className="w-12 h-12" />,
+      icon: <img src={Thunderstorm} alt="Thunderstorm" className="w-12 h-12" />,
       tempMin: '26°C',
       tempMax: '30°C',
       gradient: 'from-purple-500 to-purple-700',
