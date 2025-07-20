@@ -134,7 +134,7 @@ function App() {
         <div
           className={`hidden md:flex md:w-1/2 bg-blue-600 dark:bg-blue-500 text-white flex-col justify-center p-12 rounded-l-3xl relative overflow-hidden bg-smooth-transition smooth-morph`}
           style={{
-            backgroundImage: `url(/public/assets/${dark ? 'logbkimg2.png' : 'logbkimg.png'})`,
+            backgroundImage: `url(/assets/${dark ? 'logbkimg2.png' : 'logbkimg.png'})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
