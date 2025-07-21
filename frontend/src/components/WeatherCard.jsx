@@ -101,7 +101,7 @@ const WeatherCard = ({ weather, onRemove, dark }) => {
     ? new Date(weather.sys.sunset * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
     : "--";
 
-  // Extract wind info as a string (e.g., "4.0m/s 120 Degree")
+  // Extract wind info as a string 
   const windStr = weather?.wind
     ? `${weather.wind.speed ?? "--"}m/s${weather.wind.deg !== undefined ? ` ${weather.wind.deg} Degree` : ""}`
     : "--";
