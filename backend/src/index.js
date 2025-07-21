@@ -1,7 +1,6 @@
 import dotenv from "dotenv";
 dotenv.config();
 
-console.log("TEST ENV KEY:", process.env.OPENWEATHER_API_KEY); // Add this line
 
 import express from "express";
 import cors from "cors";

@@ -7,11 +7,11 @@ import { useAuth0 } from "@auth0/auth0-react";
 const Header = ({ dark, setDark }) => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const navigate = useNavigate();
-  const { user } = useAuth0();
+  const { user, logout } = useAuth0();
 
   const handleLogout = () => {
-    console.log('Logging out...');
     setShowMobileMenu(false);
+    logout({ logoutParams: { returnTo: window.location.origin } });
   };
 
   const handleNavigation = (path) => {
