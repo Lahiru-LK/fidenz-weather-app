@@ -25,7 +25,7 @@ jobs:
           npm install
           npm run build --if-present
           npm run test --if-present
-        working-directory: ${{ github.workspace }}/backend
+        working-directory: ${{ github.workspace }}./backend
 
       - name: Zip artifact for deployment
         run: zip -r release.zip .
