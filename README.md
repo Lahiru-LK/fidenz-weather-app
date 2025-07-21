@@ -39,7 +39,7 @@ cd backend
 cp .env.example .env
 # Edit .env and add your OpenWeatherMap API key and Auth0 credentials
 npm install
-npm start
+npm run dev
 ```
 
 **Backend .env.example**
@@ -60,7 +60,7 @@ TEST_USER_PASSWORD=Pass#fidenz
 ### 3. Frontend Setup
 
 ```bash
-cd ../frontend
+cd frontend
 cp .env.example .env
 # Edit .env and add your Auth0 credentials
 npm install
