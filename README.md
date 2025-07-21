@@ -42,7 +42,7 @@ npm install
 npm run dev
 ```
 
-**Backend .env.example**
+**Backend .env**
 ```env
 PORT=5000
 OPENWEATHER_API_KEY=your_openweathermap_api_key
@@ -67,13 +67,19 @@ npm install
 npm run dev
 ```
 
-**Frontend .env.example**
+**Frontend .env**
 ```env
 VITE_AUTH0_DOMAIN=your-auth0-domain
 VITE_AUTH0_CLIENT_ID=your-auth0-client-id
 VITE_AUTH0_AUDIENCE=http://localhost:5000
 VITE_AUTH0_REDIRECT_URI=http://localhost:5173
 ```
+```.env.local
+VITE_AUTH0_DOMAIN=dev-1z3rjbh6kznhwrsb.us.auth0.com
+VITE_AUTH0_CLIENT_ID=kjMaq7DKkO8ShOzzTIAQX9GOt2ODV9VM
+PORT=5173
+```
+
 
 - The frontend runs on `http://localhost:5173` by default.
 
@@ -112,7 +118,7 @@ backend
 │   └── weatherService.js
 ├── utils
 │   └── apiUtils.js
-├── .env.example
+├── .env
 ├── server.js
 └── package.json
 
@@ -139,6 +145,7 @@ frontend
 │   ├── App.jsx
 │   ├── main.jsx
 │   └── tailwind.config.js
-├── .env.example
+├── .env
+|── .env.local
 └── package.json
 ````
