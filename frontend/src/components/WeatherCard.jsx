@@ -47,7 +47,7 @@ const getWeatherIcon = (main, description) => {
 const gradients = [
   "from-blue-400 to-blue-600",
   "from-purple-400 to-purple-600",
-  "from-green-400 to-green-600",
+  "from-pink-600 to-pink-900",
   "from-orange-400 to-orange-600",
   "from-red-400 to-red-600",
   "from-gray-400 to-gray-600",
