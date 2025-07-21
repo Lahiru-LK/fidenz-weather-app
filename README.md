@@ -42,6 +42,19 @@ npm install
 npm start
 ```
 
+**Backend .env.example**
+```env
+PORT=5000
+OPENWEATHER_API_KEY=your_openweathermap_api_key
+AUTH0_DOMAIN=your-auth0-domain
+AUTH0_CLIENT_ID=your-auth0-client-id
+AUTH0_CLIENT_SECRET=your-auth0-client-secret
+AUTH0_AUDIENCE=http://localhost:5000
+FRONTEND_URL=http://localhost:5173
+TEST_USER_EMAIL=careers@fidenz.com
+TEST_USER_PASSWORD=Pass#fidenz
+```
+
 - The backend runs on `http://localhost:5000` by default.
 
 ### 3. Frontend Setup
@@ -52,6 +65,14 @@ cp .env.example .env
 # Edit .env and add your Auth0 credentials
 npm install
 npm run dev
+```
+
+**Frontend .env.example**
+```env
+VITE_AUTH0_DOMAIN=your-auth0-domain
+VITE_AUTH0_CLIENT_ID=your-auth0-client-id
+VITE_AUTH0_AUDIENCE=http://localhost:5000
+VITE_AUTH0_REDIRECT_URI=http://localhost:5173
 ```
 
 - The frontend runs on `http://localhost:5173` by default.
@@ -70,6 +91,8 @@ npm run dev
 ### 5. Environment Variables
 
 - See `.env.example` in both `backend` and `frontend` folders for required variables.
+- **Never commit your real `.env` files to git. Only commit `.env.example` files.**
+- After cloning, copy `.env.example` to `.env` and fill in your own keys.
 
 ---
 
